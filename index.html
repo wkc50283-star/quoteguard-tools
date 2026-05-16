@@ -4,29 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Material Cost Increase Profit Calculator | QuoteGuard Tools</title>
+  <title>QuoteGuard Tools | Material Cost Increase Profit Impact Calculator</title>
 
   <meta
     name="description"
-    content="Use this free material cost increase profit calculator to check how rising material costs, labor costs, other expenses, and customer discounts affect your job profit."
-  />
-
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://wkc50283-star.github.io/quoteguard-tools/" />
-
-  <meta property="og:title" content="Material Cost Increase Profit Calculator | QuoteGuard Tools" />
-  <meta
-    property="og:description"
-    content="Check if your job quote still makes money after material cost increases, labor costs, other expenses, and customer discounts."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://wkc50283-star.github.io/quoteguard-tools/" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Material Cost Increase Profit Calculator | QuoteGuard Tools" />
-  <meta
-    name="twitter:description"
-    content="Check how material cost increases and customer discounts affect your job profit before you accept a quote."
+    content="Use this free calculator for contractors and small service businesses to check if a job quote still makes money after material cost increases, labor costs, other expenses, or customer discounts."
   />
 
   <link rel="stylesheet" href="style.css" />
@@ -35,243 +17,262 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <div class="brand">QuoteGuard Tools</div>
-
-      <section class="hero">
-        <p class="eyebrow">Free calculator for contractors and small service businesses</p>
-
-        <h1>Will This Job Still Make Money If Material Costs Rise?</h1>
-
-        <p class="hero-text">
-          Use this simple calculator to check if a job quote still makes money after
-          material cost increases, labor costs, other expenses, or customer discounts.
-        </p>
-
-        <p class="hero-text secondary-hero-text">
-          Built for small contractors, handymen, renovation workers, cleaning businesses,
-          material resellers, and small service businesses that quote jobs before all costs are final.
-        </p>
-
-        <a href="#calculator" class="primary-link">Check My Quote</a>
-      </section>
+      <p class="brand">QuoteGuard Tools</p>
+      <p class="tagline">Simple calculators for small business quote decisions</p>
     </div>
   </header>
 
-  <main>
-    <section id="calculator" class="calculator-section">
-      <div class="container calculator-grid">
-        <div class="card input-card">
-          <h2>Enter Your Job Numbers</h2>
+  <main class="container">
+    <section class="hero">
+      <h1>Will This Job Still Make Money If Material Costs Rise?</h1>
 
-          <p class="section-note">
-            Enter your own quote and cost assumptions. This tool does not predict material prices.
-          </p>
+      <p class="hero-text">
+        Use this simple calculator to check if a job quote still makes money after material cost increases,
+        labor costs, other expenses, or customer discounts.
+      </p>
 
-          <form id="quoteForm">
-            <div class="form-group">
-              <label for="quotedPrice">Quoted Price</label>
-              <input type="number" id="quotedPrice" placeholder="Example: 50000" min="0" step="0.01" />
-            </div>
+      <p class="hero-note">
+        Built for small contractors, handymen, renovation workers, cleaning businesses,
+        material resellers, and small service businesses that quote jobs before all costs are final.
+      </p>
 
-            <div class="form-group">
-              <label for="materialCost">Material Cost</label>
-              <input type="number" id="materialCost" placeholder="Example: 18000" min="0" step="0.01" />
-            </div>
+      <a href="#calculator" class="button-link">Start Calculating</a>
+    </section>
 
-            <div class="form-group">
-              <label for="laborCost">Labor Cost</label>
-              <input type="number" id="laborCost" placeholder="Example: 12000" min="0" step="0.01" />
-            </div>
+    <section id="calculator" class="calculator-card">
+      <h2>Job Quote Profit Impact Calculator</h2>
 
-            <div class="form-group">
-              <label for="otherCosts">Other Costs</label>
-              <input type="number" id="otherCosts" value="0" min="0" step="0.01" />
-              <small>Travel, tools, supplies, subcontractors, delivery, or other costs.</small>
-            </div>
+      <p>
+        Enter your quote, costs, possible material cost increase, and customer discount to estimate
+        whether the job may still be profitable.
+      </p>
 
-            <div class="form-group">
-              <label for="materialIncreasePercent">Material Cost Increase %</label>
-              <input type="number" id="materialIncreasePercent" value="10" min="0" step="0.01" />
-            </div>
+      <p>
+        This tool does not predict material prices. It only helps you test your own cost assumptions.
+      </p>
 
-            <div class="form-group">
-              <label for="discountPercent">Customer Discount %</label>
-              <input type="number" id="discountPercent" value="0" min="0" max="99" step="0.01" />
-            </div>
+      <div class="form-grid">
+        <label>
+          Quoted Price
+          <input type="number" id="quotedPrice" min="0" step="0.01" placeholder="Example: 1500" />
+        </label>
 
-            <div class="form-group">
-              <label for="targetMarginPercent">Target Profit Margin %</label>
-              <input type="number" id="targetMarginPercent" value="20" min="0" max="99" step="0.01" />
-            </div>
+        <label>
+          Material Cost
+          <input type="number" id="materialCost" min="0" step="0.01" placeholder="Example: 500" />
+        </label>
 
-            <div class="button-row">
-              <button type="submit" class="primary-button">Calculate</button>
-              <button type="button" id="resetButton" class="secondary-button">Reset</button>
-            </div>
+        <label>
+          Labor Cost
+          <input type="number" id="laborCost" min="0" step="0.01" placeholder="Example: 400" />
+        </label>
 
-            <p id="errorMessage" class="error-message" aria-live="polite"></p>
-          </form>
+        <label>
+          Other Costs
+          <input type="number" id="otherCosts" min="0" step="0.01" placeholder="Example: 100" />
+          <span class="field-hint">Travel, delivery, supplies, tools, platform fees, or other costs.</span>
+        </label>
+
+        <label>
+          Material Cost Increase %
+          <input type="number" id="materialIncrease" min="0" step="0.01" placeholder="Example: 15" />
+        </label>
+
+        <label>
+          Customer Discount %
+          <input type="number" id="customerDiscount" min="0" step="0.01" placeholder="Example: 10" />
+        </label>
+
+        <label>
+          Target Profit Margin %
+          <input type="number" id="targetMargin" min="0" max="99" step="0.01" placeholder="Example: 25" />
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button type="button" onclick="calculateProfitImpact()">Calculate</button>
+        <button type="button" class="secondary-button" onclick="resetCalculator()">Reset</button>
+      </div>
+    </section>
+
+    <section class="result-card">
+      <h2>Result</h2>
+
+      <div class="status-box" id="riskStatus">
+        <strong>Risk Status</strong>
+        <span>Enter numbers to calculate</span>
+      </div>
+
+      <p id="riskMessage" class="result-message">
+        Your result will appear here after calculation.
+      </p>
+
+      <div class="result-grid">
+        <div>
+          <span>Original Profit</span>
+          <strong id="originalProfit">$0.00</strong>
         </div>
 
-        <div class="card result-card">
-          <h2>Profit Impact Result</h2>
+        <div>
+          <span>Original Margin</span>
+          <strong id="originalMargin">0.00%</strong>
+        </div>
 
-          <div id="riskBox" class="risk-box neutral" aria-live="polite">
-            <span class="risk-label">Risk Status</span>
-            <strong id="riskStatus">Enter numbers to calculate</strong>
-            <p id="riskMessage" class="risk-message">
-              Your result will appear here after calculation.
-            </p>
-          </div>
+        <div>
+          <span>New Material Cost</span>
+          <strong id="newMaterialCost">$0.00</strong>
+        </div>
 
-          <div class="result-list">
-            <div class="result-item">
-              <span>Original Profit</span>
-              <strong id="originalProfit">$0.00</strong>
-            </div>
+        <div>
+          <span>Profit After Material Increase</span>
+          <strong id="profitAfterIncrease">$0.00</strong>
+        </div>
 
-            <div class="result-item">
-              <span>Original Margin</span>
-              <strong id="originalMargin">0.00%</strong>
-            </div>
+        <div>
+          <span>Margin After Material Increase</span>
+          <strong id="marginAfterIncrease">0.00%</strong>
+        </div>
 
-            <div class="result-item">
-              <span>New Material Cost</span>
-              <strong id="newMaterialCost">$0.00</strong>
-            </div>
+        <div>
+          <span>Profit After Discount</span>
+          <strong id="profitAfterDiscount">$0.00</strong>
+        </div>
 
-            <div class="result-item">
-              <span>Profit After Material Increase</span>
-              <strong id="profitAfterIncrease">$0.00</strong>
-            </div>
+        <div>
+          <span>Minimum Safe Quote</span>
+          <strong id="minimumSafeQuote">$0.00</strong>
+        </div>
 
-            <div class="result-item">
-              <span>Margin After Material Increase</span>
-              <strong id="marginAfterIncrease">0.00%</strong>
-            </div>
-
-            <div class="result-item important">
-              <span>Profit After Discount</span>
-              <strong id="profitAfterDiscount">$0.00</strong>
-            </div>
-
-            <div class="result-item important">
-              <span>Minimum Safe Quote</span>
-              <strong id="minimumSafeQuote">$0.00</strong>
-            </div>
-          </div>
-
-          <p class="result-note">
-            The final risk status is based on profit after material cost increase and customer discount.
-          </p>
+        <div>
+          <span>Target Margin</span>
+          <strong id="targetMarginResult">0.00%</strong>
         </div>
       </div>
+
+      <p class="small-note">
+        Results are estimates based only on the numbers you enter. Always review your own costs,
+        contract terms, taxes, and business situation before accepting a job.
+      </p>
     </section>
 
     <section class="content-section">
-      <div class="container content-grid">
-        <article class="info-block">
-          <h2>How This Calculator Works</h2>
-          <p>
-            This calculator first estimates your original profit, then adjusts your material cost
-            based on the increase percentage you enter. It also applies any customer discount and
-            compares the final margin against your target profit margin.
-          </p>
-        </article>
+      <h2>How This Calculator Works</h2>
 
-        <article class="info-block">
-          <h2>Who Is This For?</h2>
-          <p>
-            This tool is built for small contractors, handymen, renovation workers, cleaning businesses,
-            material resellers, and small service businesses that quote jobs before all costs are final.
-          </p>
+      <p>
+        This calculator compares your quoted price with your material cost, labor cost, other costs,
+        possible material cost increase, and customer discount.
+      </p>
 
-          <ul>
-            <li>Small contractors</li>
-            <li>Handymen and repair workers</li>
-            <li>Renovation service providers</li>
-            <li>Hardware and material resellers</li>
-            <li>Cleaning and detailing businesses</li>
-            <li>Small service businesses that quote jobs before all costs are final</li>
-          </ul>
-        </article>
-      </div>
+      <p>
+        It estimates how much profit may remain after your costs change. It also calculates a minimum
+        safe quote based on your target profit margin.
+      </p>
     </section>
 
-    <section class="faq-section">
-      <div class="container">
-        <h2>FAQ</h2>
+    <section class="content-section">
+      <h2>Who Is This For?</h2>
 
-        <div class="faq-item">
-          <h3>Is this a construction cost calculator?</h3>
-          <p>
-            No. This calculator does not estimate full construction costs. It only shows how
-            material cost increases and discounts may affect the profit of a job quote.
-          </p>
-        </div>
+      <p>
+        This tool is built for small business owners and service providers who quote jobs before all
+        costs are final.
+      </p>
 
-        <div class="faq-item">
-          <h3>Does this tool predict material prices?</h3>
-          <p>
-            No. You enter your own material cost increase percentage. The tool does not predict
-            steel, copper, lumber, fuel, shipping, currency, tariff, or market price changes.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Who can use this calculator?</h3>
-          <p>
-            Small contractors, handymen, renovation workers, material resellers, cleaning businesses,
-            and other small service businesses that quote jobs before all costs are final.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>What is a safe profit margin?</h3>
-          <p>
-            There is no universal safe margin. It depends on your industry, local market, overhead,
-            risk, and business goals. Use the target margin field as your own benchmark.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Why does a discount reduce profit so much?</h3>
-          <p>
-            A discount reduces your revenue, not your costs. If material and labor costs stay the same,
-            even a small discount can reduce your profit margin quickly.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>What happens if my profit after discount is negative?</h3>
-          <p>
-            If your profit after discount is negative, the quote may result in a loss based on
-            the numbers you entered. You may need to raise the quote, reduce costs, reduce the discount,
-            or review whether the job is worth accepting.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>Can I use this calculator for cleaning or service jobs?</h3>
-          <p>
-            Yes. This calculator can also be used for cleaning, detailing, repair, maintenance,
-            delivery, and other service jobs as long as you enter your own quote, labor, material,
-            and other costs.
-          </p>
-        </div>
-      </div>
+      <ul>
+        <li>Small contractors</li>
+        <li>Handymen and repair workers</li>
+        <li>Renovation workers</li>
+        <li>Cleaning businesses</li>
+        <li>Material resellers</li>
+        <li>Small service businesses</li>
+      </ul>
     </section>
 
-    <section class="disclaimer-section">
-      <div class="container">
-        <h2>Important Disclaimer</h2>
-        <p>
-          This calculator is for simple profit impact estimation only. It does not predict material
-          prices, provide construction cost standards, or replace professional estimating, accounting,
-          legal, tax, or financial advice. Please adjust all inputs based on your own costs, local market,
-          contract terms, and business situation.
-        </p>
-      </div>
+    <section class="content-section">
+      <h2>What This Calculator Does Not Do</h2>
+
+      <p>
+        This calculator does not predict material prices, fuel prices, labor rates, shipping costs,
+        tariffs, market changes, or customer behavior.
+      </p>
+
+      <p>
+        It is not a construction cost estimator, accounting tool, tax tool, legal tool, or financial
+        advice tool. It only helps you test simple quote scenarios using the numbers you enter.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Related Tool</h2>
+
+      <p>
+        If you have not sent a quote yet and want to know the lowest price needed to protect your
+        target margin, use the minimum safe quote calculator.
+      </p>
+
+      <p>
+        <a href="minimum-safe-quote-calculator.html">
+          Calculate your minimum safe quote before sending a price
+        </a>
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>FAQ</h2>
+
+      <h3>Is this a construction cost calculator?</h3>
+      <p>
+        No. This is not a full construction cost calculator. It does not estimate project scope,
+        labor hours, permits, taxes, or local market rates. It only checks how your own cost inputs
+        may affect your job profit.
+      </p>
+
+      <h3>Does this calculator predict material prices?</h3>
+      <p>
+        No. This calculator does not predict future material prices. You enter your own expected
+        material cost increase percentage to test a possible scenario.
+      </p>
+
+      <h3>Who can use this calculator?</h3>
+      <p>
+        Small contractors, handymen, cleaning businesses, repair workers, maintenance providers,
+        material resellers, and small service businesses can use this tool to review simple job
+        quote scenarios.
+      </p>
+
+      <h3>What is a safe profit margin?</h3>
+      <p>
+        A safe profit margin depends on your business, industry, risk, overhead, and local market.
+        This calculator does not recommend a standard margin. You enter your own target margin.
+      </p>
+
+      <h3>Why does a customer discount affect profit so much?</h3>
+      <p>
+        A discount reduces your quoted price, but your costs usually stay the same. This means the
+        discount may reduce your profit faster than expected.
+      </p>
+
+      <h3>What happens if my profit after discount is negative?</h3>
+      <p>
+        If your profit after discount is negative, the quote may result in a loss based on the numbers
+        you entered. You may need to raise the quote, reduce costs, reduce the discount, or review
+        whether the job is worth accepting.
+      </p>
+
+      <h3>Can I use this calculator for cleaning or service jobs?</h3>
+      <p>
+        Yes. This calculator can also be used for cleaning, detailing, repair, maintenance, delivery,
+        and other service jobs as long as you enter your own quote, labor, material, and other costs.
+      </p>
+    </section>
+
+    <section class="content-section disclaimer">
+      <h2>Important Disclaimer</h2>
+
+      <p>
+        This calculator is for simple informational estimation only. It does not provide professional
+        estimating, accounting, legal, tax, construction, or financial advice. Please adjust all inputs
+        based on your own costs, local market, contract terms, and business situation.
+      </p>
     </section>
   </main>
 

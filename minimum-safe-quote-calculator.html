@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Minimum Safe Quote Calculator | Price a Job Without Losing Money</title>
+
+  <meta
+    name="description"
+    content="Use this free minimum safe quote calculator to estimate the lowest job quote needed to cover material, labor, other costs, and your target profit margin."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="brand">QuoteGuard Tools</p>
+      <p class="tagline">Simple calculators for small business quote decisions</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>What Is the Minimum Quote You Need to Stay Profitable?</h1>
+
+      <p class="hero-text">
+        Use this free calculator to estimate the lowest quote needed to cover your material cost,
+        labor cost, other expenses, and target profit margin before you send a price to a customer.
+      </p>
+
+      <p class="hero-note">
+        Built for small contractors, handymen, renovation workers, cleaning businesses,
+        repair workers, maintenance services, and small service businesses that quote fixed-price jobs.
+      </p>
+
+      <a href="#calculator" class="button-link">Calculate My Minimum Quote</a>
+    </section>
+
+    <section id="calculator" class="calculator-card">
+      <h2>Enter Your Job Costs</h2>
+
+      <p>
+        Enter your own cost assumptions. This tool does not provide industry pricing standards,
+        predict material prices, or replace professional estimating advice.
+      </p>
+
+      <div class="form-grid">
+        <label>
+          Material Cost
+          <input type="number" id="materialCost" min="0" step="0.01" placeholder="Example: 500" />
+        </label>
+
+        <label>
+          Labor Cost
+          <input type="number" id="laborCost" min="0" step="0.01" placeholder="Example: 300" />
+        </label>
+
+        <label>
+          Other Costs
+          <input type="number" id="otherCosts" min="0" step="0.01" placeholder="Example: 100" />
+          <span class="field-hint">Travel, tools, supplies, subcontractors, delivery, or other costs.</span>
+        </label>
+
+        <label>
+          Target Profit Margin %
+          <input type="number" id="targetMargin" min="0" max="99" step="0.01" placeholder="Example: 25" />
+        </label>
+
+        <label>
+          Optional Customer Discount %
+          <input type="number" id="discountPercent" min="0" max="99" step="0.01" placeholder="Example: 10" />
+          <span class="field-hint">Optional. Use this if you want room for a possible customer discount.</span>
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button type="button" onclick="calculateMinimumQuote()">Calculate</button>
+        <button type="button" class="secondary-button" onclick="resetMinimumQuote()">Reset</button>
+      </div>
+    </section>
+
+    <section class="result-card">
+      <h2>Minimum Safe Quote Result</h2>
+
+      <div class="status-box" id="riskStatus">
+        <strong>Quote Status</strong>
+        <span>Enter numbers to calculate</span>
+      </div>
+
+      <p id="riskMessage" class="result-message">
+        Your result will appear here after calculation.
+      </p>
+
+      <div class="result-grid">
+        <div>
+          <span>Total Cost</span>
+          <strong id="totalCost">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Break-Even Quote</span>
+          <strong id="breakEvenQuote">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Target Profit</span>
+          <strong id="targetProfit">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Minimum Safe Quote</span>
+          <strong id="minimumSafeQuote">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Quote Needed Before Discount</span>
+          <strong id="quoteBeforeDiscount">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Target Margin</span>
+          <strong id="targetMarginResult">0.00%</strong>
+        </div>
+      </div>
+
+      <p class="small-note">
+        The minimum safe quote is based on your own cost inputs and target profit margin.
+        If you enter a customer discount, the calculator estimates the quote needed before discount
+        so the discounted price can still protect your target margin.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>How This Calculator Works</h2>
+
+      <p>
+        This calculator adds your material cost, labor cost, and other costs to estimate your total job cost.
+        It then calculates the lowest quote needed to protect the target profit margin you enter.
+      </p>
+
+      <p>
+        For example, covering costs is not the same as making a profit. If your total cost is too close to
+        your quote, a small mistake, delay, discount, or cost increase may remove most of your profit.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Who Is This For?</h2>
+
+      <p>
+        This tool is designed for people who quote small jobs before every cost is final.
+      </p>
+
+      <ul>
+        <li>Small contractors</li>
+        <li>Handymen and repair workers</li>
+        <li>Renovation service providers</li>
+        <li>Cleaning and detailing businesses</li>
+        <li>Maintenance service providers</li>
+        <li>Small service businesses that quote fixed-price jobs</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2>What This Calculator Does Not Do</h2>
+
+      <p>
+        This is not a construction cost estimator, accounting tool, tax tool, or financial advice tool.
+        It does not tell you the standard price for any industry and does not predict material, fuel,
+        labor, shipping, tariff, or market price changes.
+      </p>
+
+      <p>
+        It only helps you run a simple quote safety check using the numbers you enter.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Related Tool</h2>
+
+      <p>
+        If you already have a quote and want to check how material cost increases or customer discounts
+        may affect your profit, use the material cost impact calculator.
+      </p>
+
+      <p>
+        <a href="index.html#calculator">Check if a job still makes money after material costs rise</a>
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>FAQ</h2>
+
+      <h3>What is a minimum safe quote?</h3>
+      <p>
+        A minimum safe quote is the lowest price you may need to charge to cover your costs and protect
+        your target profit margin based on the numbers you enter.
+      </p>
+
+      <h3>Is this a contractor pricing calculator?</h3>
+      <p>
+        It can be used by contractors, but it does not estimate full construction costs or provide industry
+        pricing standards. It only calculates a simple minimum quote based on your own costs and target margin.
+      </p>
+
+      <h3>Can I use this for cleaning or service jobs?</h3>
+      <p>
+        Yes. You can use this calculator for cleaning, detailing, repair, maintenance, delivery, and other
+        service jobs as long as you enter your own costs.
+      </p>
+
+      <h3>Why is break-even quote different from minimum safe quote?</h3>
+      <p>
+        A break-even quote only covers your costs. A minimum safe quote also includes room for your target
+        profit margin.
+      </p>
+
+      <h3>What happens if I enter a customer discount?</h3>
+      <p>
+        The calculator estimates the quote you may need before discount so that the final discounted price
+        can still protect your target margin.
+      </p>
+    </section>
+
+    <section class="content-section disclaimer">
+      <h2>Important Disclaimer</h2>
+
+      <p>
+        This calculator is for simple quote safety estimation only. It does not provide professional
+        estimating, accounting, legal, tax, construction, or financial advice. Please adjust all inputs
+        based on your own costs, local market, contract terms, and business situation.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© QuoteGuard Tools. Simple calculators for small business quote decisions.</p>
+    </div>
+  </footer>
+
+  <script>
+    function formatCurrency(value) {
+      if (!isFinite(value)) {
+        return "$0.00";
+      }
+
+      return value.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD"
+      });
+    }
+
+    function formatPercent(value) {
+      if (!isFinite(value)) {
+        return "0.00%";
+      }
+
+      return value.toFixed(2) + "%";
+    }
+
+    function getNumber(id) {
+      const value = parseFloat(document.getElementById(id).value);
+      return isNaN(value) ? 0 : value;
+    }
+
+    function calculateMinimumQuote() {
+      const materialCost = getNumber("materialCost");
+      const laborCost = getNumber("laborCost");
+      const otherCosts = getNumber("otherCosts");
+      const targetMarginPercent = getNumber("targetMargin");
+      const discountPercent = getNumber("discountPercent");
+
+      const statusBox = document.getElementById("riskStatus");
+      const riskMessage = document.getElementById("riskMessage");
+
+      const totalCost = materialCost + laborCost + otherCosts;
+      const targetMarginDecimal = targetMarginPercent / 100;
+      const discountDecimal = discountPercent / 100;
+
+      if (totalCost <= 0) {
+        statusBox.innerHTML = "<strong>Quote Status</strong><span>Enter your costs</span>";
+        riskMessage.textContent = "Please enter at least one cost amount before calculating.";
+        return;
+      }
+
+      if (targetMarginPercent <= 0 || targetMarginPercent >= 100) {
+        statusBox.innerHTML = "<strong>Quote Status</strong><span>Check target margin</span>";
+        riskMessage.textContent = "Please enter a target profit margin greater than 0% and less than 100%.";
+        return;
+      }
+
+      if (discountPercent < 0 || discountPercent >= 100) {
+        statusBox.innerHTML = "<strong>Quote Status</strong><span>Check discount</span>";
+        riskMessage.textContent = "Please enter a discount percentage less than 100%.";
+        return;
+      }
+
+      const breakEvenQuote = totalCost;
+      const minimumSafeQuote = totalCost / (1 - targetMarginDecimal);
+      const targetProfit = minimumSafeQuote - totalCost;
+
+      let quoteBeforeDiscount = minimumSafeQuote;
+
+      if (discountDecimal > 0) {
+        quoteBeforeDiscount = minimumSafeQuote / (1 - discountDecimal);
+      }
+
+      document.getElementById("totalCost").textContent = formatCurrency(totalCost);
+      document.getElementById("breakEvenQuote").textContent = formatCurrency(breakEvenQuote);
+      document.getElementById("targetProfit").textContent = formatCurrency(targetProfit);
+      document.getElementById("minimumSafeQuote").textContent = formatCurrency(minimumSafeQuote);
+      document.getElementById("quoteBeforeDiscount").textContent = formatCurrency(quoteBeforeDiscount);
+      document.getElementById("targetMarginResult").textContent = formatPercent(targetMarginPercent);
+
+      statusBox.innerHTML = "<strong>Quote Status</strong><span>Calculated</span>";
+
+      if (discountDecimal > 0) {
+        riskMessage.textContent =
+          "Based on your numbers, your minimum safe quote is " +
+          formatCurrency(minimumSafeQuote) +
+          ". If you plan to give a " +
+          formatPercent(discountPercent) +
+          " discount, you may need to quote about " +
+          formatCurrency(quoteBeforeDiscount) +
+          " before discount to protect your target margin.";
+      } else {
+        riskMessage.textContent =
+          "Based on your numbers, your minimum safe quote is " +
+          formatCurrency(minimumSafeQuote) +
+          ". This is the estimated lowest quote needed to cover your costs and protect your target margin.";
+      }
+    }
+
+    function resetMinimumQuote() {
+      document.getElementById("materialCost").value = "";
+      document.getElementById("laborCost").value = "";
+      document.getElementById("otherCosts").value = "";
+      document.getElementById("targetMargin").value = "";
+      document.getElementById("discountPercent").value = "";
+
+      document.getElementById("totalCost").textContent = "$0.00";
+      document.getElementById("breakEvenQuote").textContent = "$0.00";
+      document.getElementById("targetProfit").textContent = "$0.00";
+      document.getElementById("minimumSafeQuote").textContent = "$0.00";
+      document.getElementById("quoteBeforeDiscount").textContent = "$0.00";
+      document.getElementById("targetMarginResult").textContent = "0.00%";
+
+      document.getElementById("riskStatus").innerHTML =
+        "<strong>Quote Status</strong><span>Enter numbers to calculate</span>";
+
+      document.getElementById("riskMessage").textContent =
+        "Your result will appear here after calculation.";
+    }
+  </script>
+</body>
+</html>
