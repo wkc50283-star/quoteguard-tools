@@ -4,6 +4,7 @@ const errorMessage = document.getElementById("errorMessage");
 
 const riskBox = document.getElementById("riskBox");
 const riskStatus = document.getElementById("riskStatus");
+const riskMessage = document.getElementById("riskMessage");
 
 const originalProfitEl = document.getElementById("originalProfit");
 const originalMarginEl = document.getElementById("originalMargin");
@@ -37,15 +38,19 @@ function setRiskStatus(status) {
   if (status === "Safe") {
     riskBox.classList.add("safe");
     riskStatus.textContent = "Safe";
+    riskMessage.textContent = "This quote is still above your target profit margin after the cost increase and discount.";
   } else if (status === "Warning") {
     riskBox.classList.add("warning");
     riskStatus.textContent = "Warning";
+    riskMessage.textContent = "This quote still has profit, but it is below your target profit margin.";
   } else if (status === "Loss") {
     riskBox.classList.add("loss");
     riskStatus.textContent = "Loss";
+    riskMessage.textContent = "This quote may lose money after the cost increase and discount.";
   } else {
     riskBox.classList.add("neutral");
     riskStatus.textContent = "Enter numbers to calculate";
+    riskMessage.textContent = "Your result will appear here after calculation.";
   }
 }
 
@@ -129,7 +134,7 @@ form.addEventListener("submit", function (event) {
   } else if (marginAfterDiscount < targetMarginPercent) {
     setRiskStatus("Warning");
   } else {
-    setRiskStatus("Safe");
+    setRiskStatus("Safe"); 
   }
 });
 

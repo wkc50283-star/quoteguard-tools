@@ -8,7 +8,25 @@
 
   <meta
     name="description"
-    content="Check how material cost increases, labor costs, other expenses, and customer discounts affect your job profit before you accept a quote."
+    content="Use this free material cost increase profit calculator to check how rising material costs, labor costs, other expenses, and customer discounts affect your job profit."
+  />
+
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://wkc50283-star.github.io/quoteguard-tools/" />
+
+  <meta property="og:title" content="Material Cost Increase Profit Calculator | QuoteGuard Tools" />
+  <meta
+    property="og:description"
+    content="Check if your job quote still makes money after material cost increases, labor costs, other expenses, and customer discounts."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wkc50283-star.github.io/quoteguard-tools/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Material Cost Increase Profit Calculator | QuoteGuard Tools" />
+  <meta
+    name="twitter:description"
+    content="Check how material cost increases and customer discounts affect your job profit before you accept a quote."
   />
 
   <link rel="stylesheet" href="style.css" />
@@ -43,17 +61,17 @@
           <form id="quoteForm">
             <div class="form-group">
               <label for="quotedPrice">Quoted Price</label>
-              <input type="number" id="quotedPrice" placeholder="Example: 5000" min="0" step="0.01" />
+              <input type="number" id="quotedPrice" placeholder="Example: 50000" min="0" step="0.01" />
             </div>
 
             <div class="form-group">
               <label for="materialCost">Material Cost</label>
-              <input type="number" id="materialCost" placeholder="Example: 1800" min="0" step="0.01" />
+              <input type="number" id="materialCost" placeholder="Example: 18000" min="0" step="0.01" />
             </div>
 
             <div class="form-group">
               <label for="laborCost">Labor Cost</label>
-              <input type="number" id="laborCost" placeholder="Example: 1200" min="0" step="0.01" />
+              <input type="number" id="laborCost" placeholder="Example: 12000" min="0" step="0.01" />
             </div>
 
             <div class="form-group">
@@ -82,16 +100,19 @@
               <button type="button" id="resetButton" class="secondary-button">Reset</button>
             </div>
 
-            <p id="errorMessage" class="error-message"></p>
+            <p id="errorMessage" class="error-message" aria-live="polite"></p>
           </form>
         </div>
 
         <div class="card result-card">
           <h2>Profit Impact Result</h2>
 
-          <div id="riskBox" class="risk-box neutral">
+          <div id="riskBox" class="risk-box neutral" aria-live="polite">
             <span class="risk-label">Risk Status</span>
             <strong id="riskStatus">Enter numbers to calculate</strong>
+            <p id="riskMessage" class="risk-message">
+              Your result will appear here after calculation.
+            </p>
           </div>
 
           <div class="result-list">
@@ -132,7 +153,7 @@
           </div>
 
           <p class="result-note">
-            The final risk status is based on profit after material increase and customer discount.
+            The final risk status is based on profit after material cost increase and customer discount.
           </p>
         </div>
       </div>
@@ -179,7 +200,7 @@
           <h3>Does this tool predict material prices?</h3>
           <p>
             No. You enter your own material cost increase percentage. The tool does not predict
-            steel, copper, lumber, fuel, shipping, currency, or tariff changes.
+            steel, copper, lumber, fuel, shipping, currency, tariff, or market price changes.
           </p>
         </div>
 
@@ -215,7 +236,7 @@
         <p>
           This calculator is for simple profit impact estimation only. It does not predict material
           prices, provide construction cost standards, or replace professional estimating, accounting,
-          legal, or financial advice. Please adjust all inputs based on your own costs, local market,
+          legal, tax, or financial advice. Please adjust all inputs based on your own costs, local market,
           contract terms, and business situation.
         </p>
       </div>
