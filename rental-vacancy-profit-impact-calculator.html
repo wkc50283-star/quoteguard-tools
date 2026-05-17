@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Free rental vacancy profit impact calculator. Check if a rental property still makes money after vacancy, repairs, management fees, and other costs."
+    content="Free rental vacancy profit impact calculator. Check if a rental still makes money after vacancy, repairs, management fees, and other costs."
   />
 
   <link rel="canonical" href="https://wkc50283-star.github.io/quoteguard-tools/rental-vacancy-profit-impact-calculator.html" />
@@ -16,7 +16,7 @@
   <meta property="og:title" content="Rental Vacancy Profit Impact Calculator" />
   <meta
     property="og:description"
-    content="Check if a rental property still makes money after vacancy, repairs, management fees, and other costs."
+    content="Check if a rental still makes money after vacancy, repairs, management fees, and other costs."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://wkc50283-star.github.io/quoteguard-tools/rental-vacancy-profit-impact-calculator.html" />
@@ -141,10 +141,6 @@
       color: var(--text);
     }
 
-    input::placeholder {
-      color: #9ca3af;
-    }
-
     input:focus {
       outline: 2px solid rgba(37, 99, 235, 0.18);
       border-color: var(--primary);
@@ -263,10 +259,16 @@
       font-size: 0.9rem;
     }
 
-    footer a {
+    footer a,
+    .content-section a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 700;
+    }
+
+    footer a:hover,
+    .content-section a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 860px) {
@@ -318,7 +320,7 @@
         "name": "Is this financial, legal, tax, or investment advice?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. This calculator is for simple scenario estimates only. It is not financial, legal, tax, or investment advice."
+          "text": "No. This calculator is for simple scenario estimates only. It is not financial, legal, tax, real estate, or investment advice."
         }
       }
     ]
@@ -329,7 +331,7 @@
 <body>
   <header>
     <div class="container">
-      <a class="brand" href="https://wkc50283-star.github.io/quoteguard-tools/">QuoteGuard Tools</a>
+      <a class="brand" href="index.html">QuoteGuard Tools</a>
     </div>
   </header>
 
@@ -350,34 +352,34 @@
         <h2>Enter your rental numbers</h2>
 
         <label for="monthlyRent">Monthly Rent</label>
-        <input id="monthlyRent" type="number" inputmode="decimal" min="0" placeholder="Example: 1500" autocomplete="off" />
+        <input id="monthlyRent" type="number" inputmode="decimal" min="0" placeholder="Example: 1500" />
         <div class="hint">The rent you expect to collect each month.</div>
 
         <label for="monthlyFixedCosts">Monthly Fixed Costs</label>
-        <input id="monthlyFixedCosts" type="number" inputmode="decimal" min="0" placeholder="Example: 900" autocomplete="off" />
+        <input id="monthlyFixedCosts" type="number" inputmode="decimal" min="0" placeholder="Example: 900" />
         <div class="hint">Mortgage, taxes, insurance, HOA, or other monthly fixed costs.</div>
 
         <label for="managementFee">Property Management Fee (%)</label>
-        <input id="managementFee" type="number" inputmode="decimal" min="0" placeholder="Example: 8" autocomplete="off" />
+        <input id="managementFee" type="number" inputmode="decimal" min="0" placeholder="Example: 8" />
         <div class="hint">Enter 0 if you manage the rental yourself.</div>
 
         <label for="vacancyDays">Expected Vacancy Days Per Year</label>
-        <input id="vacancyDays" type="number" inputmode="decimal" min="0" max="365" placeholder="Example: 30" autocomplete="off" />
+        <input id="vacancyDays" type="number" inputmode="decimal" min="0" max="365" placeholder="Example: 30" />
         <div class="hint">How many days per year the rental may sit empty.</div>
 
         <label for="annualRepairCost">Annual Repair / Maintenance Cost</label>
-        <input id="annualRepairCost" type="number" inputmode="decimal" min="0" placeholder="Example: 1200" autocomplete="off" />
+        <input id="annualRepairCost" type="number" inputmode="decimal" min="0" placeholder="Example: 1200" />
         <div class="hint">Estimated yearly repairs, maintenance, and small fixes.</div>
 
         <label for="otherAnnualCosts">Other Annual Costs</label>
-        <input id="otherAnnualCosts" type="number" inputmode="decimal" min="0" placeholder="Example: 600" autocomplete="off" />
+        <input id="otherAnnualCosts" type="number" inputmode="decimal" min="0" placeholder="Example: 600" />
         <div class="hint">Utilities, advertising, software, inspections, or other yearly costs.</div>
 
         <label for="targetMargin">Target Profit Margin (%)</label>
-        <input id="targetMargin" type="number" inputmode="decimal" min="0" placeholder="Example: 15" autocomplete="off" />
+        <input id="targetMargin" type="number" inputmode="decimal" min="0" placeholder="Example: 15" />
         <div class="hint">Your preferred minimum profit margin.</div>
 
-        <button type="button" onclick="calculateRentalProfit()">Calculate Rental Profit Impact</button>
+        <button onclick="calculateRentalProfit()">Calculate Rental Profit Impact</button>
       </div>
 
       <div class="card">
@@ -437,12 +439,12 @@
         <h2>What this calculator does</h2>
         <p>
           This rental vacancy profit impact calculator helps landlords, small property managers,
-          and rent-to-rent operators estimate whether a rental property may still make money after
+          and small rental owners estimate whether a rental may still make money after
           vacancy, repairs, management fees, and other costs.
         </p>
         <p>
           It is designed for quick scenario testing. Instead of only calculating a vacancy rate,
-          it focuses on the question that matters before you trust the deal:
+          it focuses on the question that matters before you trust the numbers:
           <strong>will the rental still make money after costs?</strong>
         </p>
       </div>
@@ -452,7 +454,7 @@
         <ul>
           <li>Landlords checking if a rental still works after vacancy and repairs.</li>
           <li>Small property managers reviewing rental profitability.</li>
-          <li>Rent-to-rent or master lease operators testing basic profit risk.</li>
+          <li>Small rental owners testing basic profit risk before relying on estimated rent.</li>
           <li>Owners comparing self-management and property management costs.</li>
           <li>Anyone who wants a simple rental profit safety check before relying on estimated rent.</li>
         </ul>
@@ -551,12 +553,38 @@
         Actual rental results may vary based on local laws, market conditions, lease terms,
         taxes, repairs, financing, tenant behavior, and other factors.
       </div>
+
+      <div class="content-section">
+        <h2>Related Tools</h2>
+
+        <p>
+          If you already have a job quote and want to check how material cost increases or customer discounts
+          may affect your profit, use the material cost impact calculator.
+        </p>
+
+        <p>
+          <a href="index.html#calculator">
+            Check if a job still makes money after material costs rise
+          </a>
+        </p>
+
+        <p>
+          If you have not sent a quote yet and want to know the lowest price needed to protect your target margin,
+          use the minimum safe quote calculator.
+        </p>
+
+        <p>
+          <a href="minimum-safe-quote-calculator.html">
+            Calculate your minimum safe quote before sending a price
+          </a>
+        </p>
+      </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      Part of <a href="https://wkc50283-star.github.io/quoteguard-tools/">QuoteGuard Tools</a>
+      Part of <a href="index.html">QuoteGuard Tools</a>
       — simple calculators for checking whether a job, quote, or rental still makes money after costs change.
     </div>
   </footer>
@@ -580,45 +608,6 @@
     function getNumber(id) {
       const value = parseFloat(document.getElementById(id).value);
       return isNaN(value) ? 0 : value;
-    }
-
-    function resetResults() {
-      document.getElementById("annualGrossRent").textContent = "$0";
-      document.getElementById("vacancyLoss").textContent = "$0";
-      document.getElementById("effectiveIncome").textContent = "$0";
-      document.getElementById("managementFeeResult").textContent = "$0";
-      document.getElementById("totalCosts").textContent = "$0";
-      document.getElementById("netProfit").textContent = "$0";
-      document.getElementById("profitMargin").textContent = "0%";
-      document.getElementById("breakEvenDays").textContent = "0 days";
-
-      const statusBox = document.getElementById("riskStatus");
-      statusBox.classList.remove("safe", "loss");
-      statusBox.classList.add("tight");
-      statusBox.innerHTML =
-        "Enter your numbers and calculate." +
-        "<small>The result will show whether this rental appears safe, tight, or at risk of loss under your assumptions.</small>";
-    }
-
-    function clearInputsOnLoad() {
-      const inputIds = [
-        "monthlyRent",
-        "monthlyFixedCosts",
-        "managementFee",
-        "vacancyDays",
-        "annualRepairCost",
-        "otherAnnualCosts",
-        "targetMargin"
-      ];
-
-      inputIds.forEach(function(id) {
-        const input = document.getElementById(id);
-        if (input) {
-          input.value = "";
-        }
-      });
-
-      resetResults();
     }
 
     function calculateRentalProfit() {
@@ -685,8 +674,6 @@
           "<small>This rental appears to stay above your target margin under the current assumptions. This does not guarantee profit, but the numbers have more room.</small>";
       }
     }
-
-    window.addEventListener("pageshow", clearInputsOnLoad);
   </script>
 </body>
 </html>

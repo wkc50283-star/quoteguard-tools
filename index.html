@@ -8,9 +8,10 @@
 
   <meta
     name="description"
-    content="Use this free calculator for contractors and small service businesses to check if a job quote still makes money after material cost increases, labor costs, other expenses, or customer discounts."
+    content="Free profit impact calculator for contractors and small service businesses. Check if a job quote still makes money after material cost increases, labor costs, other expenses, or customer discounts."
   />
 
+  <link rel="canonical" href="https://wkc50283-star.github.io/quoteguard-tools/" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -54,22 +55,22 @@
       <div class="form-grid">
         <label>
           Quoted Price
-          <input type="number" id="quotedPrice" min="0" step="0.01" placeholder="Example: 1500" />
+          <input type="number" id="quotedPrice" min="0" step="0.01" placeholder="Example: 2000" />
         </label>
 
         <label>
           Material Cost
-          <input type="number" id="materialCost" min="0" step="0.01" placeholder="Example: 500" />
+          <input type="number" id="materialCost" min="0" step="0.01" placeholder="Example: 700" />
         </label>
 
         <label>
           Labor Cost
-          <input type="number" id="laborCost" min="0" step="0.01" placeholder="Example: 400" />
+          <input type="number" id="laborCost" min="0" step="0.01" placeholder="Example: 500" />
         </label>
 
         <label>
           Other Costs
-          <input type="number" id="otherCosts" min="0" step="0.01" placeholder="Example: 100" />
+          <input type="number" id="otherCosts" min="0" step="0.01" placeholder="Example: 150" />
           <span class="field-hint">Travel, delivery, supplies, tools, platform fees, or other costs.</span>
         </label>
 
@@ -80,7 +81,7 @@
 
         <label>
           Customer Discount %
-          <input type="number" id="customerDiscount" min="0" step="0.01" placeholder="Example: 10" />
+          <input type="number" id="customerDiscount" min="0" max="99" step="0.01" placeholder="Example: 10" />
         </label>
 
         <label>
@@ -173,8 +174,7 @@
       <h2>Who Is This For?</h2>
 
       <p>
-        This tool is built for small business owners and service providers who quote jobs before all
-        costs are final.
+        This tool is built for small business owners and service providers who quote jobs before all costs are final.
       </p>
 
       <ul>
@@ -196,23 +196,31 @@
       </p>
 
       <p>
-        It is not a construction cost estimator, accounting tool, tax tool, legal tool, or financial
-        advice tool. It only helps you test simple quote scenarios using the numbers you enter.
+        It is not a construction cost estimator, accounting tool, tax tool, legal tool, or financial advice tool.
+        It only helps you test simple quote scenarios using the numbers you enter.
       </p>
     </section>
 
     <section class="content-section">
-      <h2>Related Tool</h2>
+      <h2>Related Tools</h2>
 
       <p>
-        If you have not sent a quote yet and want to know the lowest price needed to protect your
-        target margin, use the minimum safe quote calculator.
+        If you have not sent a quote yet and want to know the lowest price needed to protect your target margin,
+        use the minimum safe quote calculator.
       </p>
 
       <p>
         <a href="minimum-safe-quote-calculator.html">
           Calculate your minimum safe quote before sending a price
         </a>
+      </p>
+
+      <p>
+        You can also try the
+        <a href="rental-vacancy-profit-impact-calculator.html">
+          Rental Vacancy Profit Impact Calculator
+        </a>
+        to check whether a rental still makes money after vacancy, repairs, management fees, and other costs.
       </p>
     </section>
 
@@ -235,8 +243,7 @@
       <h3>Who can use this calculator?</h3>
       <p>
         Small contractors, handymen, cleaning businesses, repair workers, maintenance providers,
-        material resellers, and small service businesses can use this tool to review simple job
-        quote scenarios.
+        material resellers, and small service businesses can use this tool to review simple job quote scenarios.
       </p>
 
       <h3>What is a safe profit margin?</h3>
@@ -247,15 +254,14 @@
 
       <h3>Why does a customer discount affect profit so much?</h3>
       <p>
-        A discount reduces your quoted price, but your costs usually stay the same. This means the
-        discount may reduce your profit faster than expected.
+        A discount reduces your quoted price, but your costs usually stay the same. This means the discount
+        may reduce your profit faster than expected.
       </p>
 
       <h3>What happens if my profit after discount is negative?</h3>
       <p>
-        If your profit after discount is negative, the quote may result in a loss based on the numbers
-        you entered. You may need to raise the quote, reduce costs, reduce the discount, or review
-        whether the job is worth accepting.
+        If your profit after discount is negative, the quote may result in a loss based on the numbers you entered.
+        You may need to raise the quote, reduce costs, reduce the discount, or review whether the job is worth accepting.
       </p>
 
       <h3>Can I use this calculator for cleaning or service jobs?</h3>
@@ -264,17 +270,6 @@
         and other service jobs as long as you enter your own quote, labor, material, and other costs.
       </p>
     </section>
-    
-    <section class="content-section">
-  <h2>Other free calculators</h2>
-  <p>
-    You can also try our
-    <a href="rental-vacancy-profit-impact-calculator.html">
-      Rental Vacancy Profit Impact Calculator
-    </a>
-    to check whether a rental still makes money after vacancy, repairs, management fees, and other costs.
-  </p>
-</section>
 
     <section class="content-section disclaimer">
       <h2>Important Disclaimer</h2>
