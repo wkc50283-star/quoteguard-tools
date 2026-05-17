@@ -141,6 +141,10 @@
       color: var(--text);
     }
 
+    input::placeholder {
+      color: #9ca3af;
+    }
+
     input:focus {
       outline: 2px solid rgba(37, 99, 235, 0.18);
       border-color: var(--primary);
@@ -346,34 +350,34 @@
         <h2>Enter your rental numbers</h2>
 
         <label for="monthlyRent">Monthly Rent</label>
-        <input id="monthlyRent" type="number" inputmode="decimal" min="0" value="1500" />
+        <input id="monthlyRent" type="number" inputmode="decimal" min="0" placeholder="Example: 1500" autocomplete="off" />
         <div class="hint">The rent you expect to collect each month.</div>
 
         <label for="monthlyFixedCosts">Monthly Fixed Costs</label>
-        <input id="monthlyFixedCosts" type="number" inputmode="decimal" min="0" value="900" />
+        <input id="monthlyFixedCosts" type="number" inputmode="decimal" min="0" placeholder="Example: 900" autocomplete="off" />
         <div class="hint">Mortgage, taxes, insurance, HOA, or other monthly fixed costs.</div>
 
         <label for="managementFee">Property Management Fee (%)</label>
-        <input id="managementFee" type="number" inputmode="decimal" min="0" value="8" />
+        <input id="managementFee" type="number" inputmode="decimal" min="0" placeholder="Example: 8" autocomplete="off" />
         <div class="hint">Enter 0 if you manage the rental yourself.</div>
 
         <label for="vacancyDays">Expected Vacancy Days Per Year</label>
-        <input id="vacancyDays" type="number" inputmode="decimal" min="0" max="365" value="30" />
+        <input id="vacancyDays" type="number" inputmode="decimal" min="0" max="365" placeholder="Example: 30" autocomplete="off" />
         <div class="hint">How many days per year the rental may sit empty.</div>
 
         <label for="annualRepairCost">Annual Repair / Maintenance Cost</label>
-        <input id="annualRepairCost" type="number" inputmode="decimal" min="0" value="1200" />
+        <input id="annualRepairCost" type="number" inputmode="decimal" min="0" placeholder="Example: 1200" autocomplete="off" />
         <div class="hint">Estimated yearly repairs, maintenance, and small fixes.</div>
 
         <label for="otherAnnualCosts">Other Annual Costs</label>
-        <input id="otherAnnualCosts" type="number" inputmode="decimal" min="0" value="600" />
+        <input id="otherAnnualCosts" type="number" inputmode="decimal" min="0" placeholder="Example: 600" autocomplete="off" />
         <div class="hint">Utilities, advertising, software, inspections, or other yearly costs.</div>
 
         <label for="targetMargin">Target Profit Margin (%)</label>
-        <input id="targetMargin" type="number" inputmode="decimal" min="0" value="15" />
+        <input id="targetMargin" type="number" inputmode="decimal" min="0" placeholder="Example: 15" autocomplete="off" />
         <div class="hint">Your preferred minimum profit margin.</div>
 
-        <button onclick="calculateRentalProfit()">Calculate Rental Profit Impact</button>
+        <button type="button" onclick="calculateRentalProfit()">Calculate Rental Profit Impact</button>
       </div>
 
       <div class="card">
@@ -578,6 +582,45 @@
       return isNaN(value) ? 0 : value;
     }
 
+    function resetResults() {
+      document.getElementById("annualGrossRent").textContent = "$0";
+      document.getElementById("vacancyLoss").textContent = "$0";
+      document.getElementById("effectiveIncome").textContent = "$0";
+      document.getElementById("managementFeeResult").textContent = "$0";
+      document.getElementById("totalCosts").textContent = "$0";
+      document.getElementById("netProfit").textContent = "$0";
+      document.getElementById("profitMargin").textContent = "0%";
+      document.getElementById("breakEvenDays").textContent = "0 days";
+
+      const statusBox = document.getElementById("riskStatus");
+      statusBox.classList.remove("safe", "loss");
+      statusBox.classList.add("tight");
+      statusBox.innerHTML =
+        "Enter your numbers and calculate." +
+        "<small>The result will show whether this rental appears safe, tight, or at risk of loss under your assumptions.</small>";
+    }
+
+    function clearInputsOnLoad() {
+      const inputIds = [
+        "monthlyRent",
+        "monthlyFixedCosts",
+        "managementFee",
+        "vacancyDays",
+        "annualRepairCost",
+        "otherAnnualCosts",
+        "targetMargin"
+      ];
+
+      inputIds.forEach(function(id) {
+        const input = document.getElementById(id);
+        if (input) {
+          input.value = "";
+        }
+      });
+
+      resetResults();
+    }
+
     function calculateRentalProfit() {
       const monthlyRent = getNumber("monthlyRent");
       const monthlyFixedCosts = getNumber("monthlyFixedCosts");
@@ -643,7 +686,7 @@
       }
     }
 
-    calculateRentalProfit();
+    window.addEventListener("pageshow", clearInputsOnLoad);
   </script>
 </body>
 </html>
