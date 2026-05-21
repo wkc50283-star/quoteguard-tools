@@ -51,28 +51,65 @@
       <div class="form-grid">
         <label>
           Material Cost
-          <input type="number" id="materialCost" min="0" step="0.01" placeholder="Example: 500" />
+          <input
+            type="number"
+            id="materialCost"
+            min="0"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="Example: 500"
+          />
         </label>
 
         <label>
           Labor Cost
-          <input type="number" id="laborCost" min="0" step="0.01" placeholder="Example: 300" />
+          <input
+            type="number"
+            id="laborCost"
+            min="0"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="Example: 300"
+          />
         </label>
 
         <label>
           Other Costs
-          <input type="number" id="otherCosts" min="0" step="0.01" placeholder="Example: 100" />
+          <input
+            type="number"
+            id="otherCosts"
+            min="0"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="Example: 100"
+          />
           <span class="field-hint">Travel, tools, supplies, subcontractors, delivery, or other costs.</span>
         </label>
 
         <label>
           Target Profit Margin %
-          <input type="number" id="targetMargin" min="0" max="99" step="0.01" placeholder="Example: 25" />
+          <input
+            type="number"
+            id="targetMargin"
+            min="0"
+            max="99"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="Example: 25"
+          />
         </label>
 
         <label>
           Optional Customer Discount %
-          <input type="number" id="discountPercent" min="0" max="99" step="0.01" placeholder="Example: 10" />
+          <input
+            type="number"
+            id="discountPercent"
+            min="0"
+            max="99"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="Example: 10"
+          />
           <span class="field-hint">Optional. Use this if you want room for a possible customer discount.</span>
         </label>
       </div>
@@ -180,17 +217,16 @@
     </section>
 
     <section class="content-section">
-      <h2>Related Tools</h2>
+      <h2>Related Tool</h2>
 
       <p>
-        If you already have a quote and want to check how material cost increases or customer discounts
-        may affect your profit, use the material cost impact calculator.
+        If you already have a job amount and want to check profit, risk buffers, and cash flow pressure,
+        use the full job profit decision checker.
       </p>
 
       <p>
-        <a href="index.html#calculator">Check if a job still makes money after material costs rise</a>
+        <a href="index.html#calculator">Check full job profit, risk buffer, and cash flow</a>
       </p>
-
     </section>
 
     <section class="content-section">
@@ -265,7 +301,12 @@
     }
 
     function getNumber(id) {
-      const value = parseFloat(document.getElementById(id).value);
+      const element = document.getElementById(id);
+      if (!element) {
+        return 0;
+      }
+
+      const value = parseFloat(element.value);
       return isNaN(value) ? 0 : value;
     }
 
@@ -357,6 +398,16 @@
       document.getElementById("riskMessage").textContent =
         "Your result will appear here after calculation.";
     }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const numberInputs = document.querySelectorAll('input[type="number"]');
+
+      numberInputs.forEach(function(input) {
+        input.addEventListener("focus", function() {
+          this.select();
+        });
+      });
+    });
   </script>
 </body>
 </html>
