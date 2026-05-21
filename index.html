@@ -3,587 +3,752 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will This Job Really Make Money? Free Job Profit Decision Checker</title>
-  <meta name="description" content="Check if a small job still makes money after real costs, risk buffers, rework, warranty, tools, and payment delays. Free, no signup required." />
-  <meta name="robots" content="index, follow" />
-  <meta name="google-site-verification" content="LLuFJGZxgmmMOXp_Lv9AYAkBCSF-jf84rXOKlToM-6Y" />
-  <link rel="canonical" href="https://wkc50283-star.github.io/job-profit-decision-checker/" />
+
+  <title>QuoteGuard Tools | Job Profit, Risk Buffer & Cash Flow Calculator</title>
+
+  <meta
+    name="description"
+    content="Free job profit decision checker for small contractors and service businesses. Calculate real job profit after costs, risk buffers, rework, warranty, tools, supplies, and cash flow pressure."
+  />
+
   <link rel="stylesheet" href="style.css" />
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script defer src="script.js"></script>
+
+  <style>
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+
+    .top-nav a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      opacity: 0.85;
+    }
+
+    .top-nav a:hover {
+      opacity: 1;
+    }
+
+    .form-section-title {
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .select-field {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #d0d0d0;
+      font-size: 1rem;
+      background: #fff;
+    }
+
+    .status-safe {
+      border-left: 6px solid #2e7d32;
+    }
+
+    .status-tight {
+      border-left: 6px solid #f9a825;
+    }
+
+    .status-risky {
+      border-left: 6px solid #ef6c00;
+    }
+
+    .status-loss {
+      border-left: 6px solid #c62828;
+    }
+
+    .project-warning {
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 12px;
+      background: #f7f7f7;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .language-note {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 12px;
+      background: #f7f7f7;
+      font-size: 0.95rem;
+    }
+
+    @media print {
+      header,
+      nav,
+      .hero,
+      .calculator-card,
+      .content-section,
+      .button-row,
+      .site-footer {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .result-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="Job Profit Decision Checker Home">
-        <span class="brand-mark">J</span>
-        <span>Job Profit Checker</span>
-      </a>
+    <div class="container">
+      <p class="brand">QuoteGuard Tools</p>
+      <p class="tagline">Simple calculators for small business quote decisions</p>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        ☰
-      </button>
-
-      <nav class="site-nav" id="siteNav">
-        <a href="#home">Home</a>
-        <a href="#calculator">Profit Check</a>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#calculator">Calculator</a>
         <a href="#risk-buffer">Risk Buffer</a>
         <a href="#cash-flow">Cash Flow</a>
         <a href="#about">About</a>
+        <a href="minimum-safe-quote-calculator.html">Minimum Safe Quote</a>
       </nav>
     </div>
   </header>
 
-  <main id="home">
+  <main class="container">
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Free · No signup · Mobile friendly</p>
-          <h1>Will This Job Really Make Money?</h1>
-          <p class="hero-subtitle">
-            Check if a small job still makes money after real costs, risk buffers, rework, warranty, tools, and payment delays.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#calculator">Start Free Check</a>
-            <a class="btn btn-secondary" href="#how-it-works">How it works</a>
-          </div>
-          <p class="microcopy">
-            No app install. No customer setup. Just enter your estimated numbers and check the decision.
-          </p>
-        </div>
+      <h1>Will This Job Really Make Money?</h1>
 
-        <div class="hero-card" aria-label="Example result preview">
-          <div class="preview-card">
-            <p class="eyebrow">Example Result</p>
-            <div class="preview-top">
-              <span>Risk Status</span>
-              <strong class="status-pill status-tight">Tight</strong>
-            </div>
-            <div class="preview-row">
-              <span>True Safe Profit</span>
-              <strong>$420.00</strong>
-            </div>
-            <div class="preview-row">
-              <span>Cash Gap</span>
-              <strong class="warning-text">$350.00</strong>
-            </div>
-            <p>
-              This is only a sample preview. Your actual result will appear after calculation.
-            </p>
-          </div>
-        </div>
+      <p class="hero-text">
+        Check real job profit after costs, risk buffers, rework, warranty,
+        tools, supplies, and cash flow pressure before you accept the work.
+      </p>
+
+      <p class="hero-note">
+        Built for small contractors, handymen, cleaning businesses, repair workers,
+        maintenance services, renovation workers, and small service businesses that quote fixed-price jobs.
+      </p>
+
+      <a href="#calculator" class="button-link">Start Calculating</a>
+    </section>
+
+    <section id="calculator" class="calculator-card">
+      <h2>Job Profit Decision Checker</h2>
+
+      <p>
+        Enter your job amount, costs, risk buffers, and cash flow assumptions.
+        This tool helps you estimate whether a job may still be profitable after real-world costs.
+      </p>
+
+      <p>
+        This calculator does not provide industry pricing standards, legal advice, tax advice,
+        insurance advice, safety compliance advice, or construction estimating advice.
+      </p>
+
+      <h3 class="form-section-title">1. Job Amount</h3>
+
+      <div class="form-grid">
+        <label>
+          Project Amount / Bid Amount
+          <input type="number" id="projectAmount" min="0" step="0.01" inputmode="decimal" placeholder="Example: 3000" />
+        </label>
+
+        <label>
+          Discount or Price Reduction
+          <input type="number" id="discountAmount" min="0" step="0.01" inputmode="decimal" placeholder="Example: 150" />
+          <span class="field-hint">Any discount, price cut, or negotiated reduction.</span>
+        </label>
+
+        <label>
+          Extra Charges
+          <input type="number" id="extraCharges" min="0" step="0.01" inputmode="decimal" placeholder="Example: 100" />
+          <span class="field-hint">Any extra amount you can charge, such as add-ons or extra work.</span>
+        </label>
+      </div>
+
+      <h3 class="form-section-title">2. Project Type</h3>
+
+      <div class="form-grid">
+        <label>
+          Project Type
+          <select id="projectType" class="select-field" onchange="updateProjectTypeNote()">
+            <option value="fixed">Fixed-price Job</option>
+            <option value="turnkey">Turnkey Project</option>
+            <option value="laborOnly">Labor-only Job</option>
+            <option value="laborMaterials">Labor + Materials</option>
+            <option value="subcontracted">Subcontracted Work</option>
+            <option value="hourly">Hourly Job</option>
+            <option value="unitPrice">Unit-price Job</option>
+            <option value="mixed">Mixed Pricing</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="projectTypeNote" class="project-warning">
+        Fixed-price jobs can become risky if material, labor, or rework costs increase after the quote is accepted.
+      </div>
+
+      <h3 class="form-section-title">3. Basic Costs</h3>
+
+      <div class="form-grid">
+        <label>
+          Material Cost
+          <input type="number" id="materialCost" min="0" step="0.01" inputmode="decimal" placeholder="Example: 800" />
+        </label>
+
+        <label>
+          Labor Cost
+          <input type="number" id="laborCost" min="0" step="0.01" inputmode="decimal" placeholder="Example: 900" />
+        </label>
+
+        <label>
+          Subcontractor Cost
+          <input type="number" id="subcontractorCost" min="0" step="0.01" inputmode="decimal" placeholder="Example: 300" />
+        </label>
+
+        <label>
+          Travel / Vehicle Cost
+          <input type="number" id="travelCost" min="0" step="0.01" inputmode="decimal" placeholder="Example: 120" />
+        </label>
+
+        <label>
+          Tools / Supplies / Consumables
+          <input type="number" id="toolsCost" min="0" step="0.01" inputmode="decimal" placeholder="Example: 80" />
+          <span class="field-hint">Tape, blades, gloves, cleaning supplies, batteries, small tools, and consumables.</span>
+        </label>
+
+        <label>
+          Other Costs
+          <input type="number" id="otherCosts" min="0" step="0.01" inputmode="decimal" placeholder="Example: 100" />
+        </label>
+      </div>
+
+      <h3 class="form-section-title">4. Risk Buffers</h3>
+
+      <div class="form-grid">
+        <label>
+          Rework / Mistake Buffer
+          <input type="number" id="reworkBuffer" min="0" step="0.01" inputmode="decimal" placeholder="Example: 150" />
+        </label>
+
+        <label>
+          Material Waste Buffer
+          <input type="number" id="wasteBuffer" min="0" step="0.01" inputmode="decimal" placeholder="Example: 100" />
+        </label>
+
+        <label>
+          Warranty / Return Visit Buffer
+          <input type="number" id="warrantyBuffer" min="0" step="0.01" inputmode="decimal" placeholder="Example: 120" />
+        </label>
+
+        <label>
+          Unexpected Event Buffer
+          <input type="number" id="unexpectedBuffer" min="0" step="0.01" inputmode="decimal" placeholder="Example: 150" />
+        </label>
+
+        <label>
+          Site Condition Buffer
+          <input type="number" id="siteConditionBuffer" min="0" step="0.01" inputmode="decimal" placeholder="Example: 100" />
+        </label>
+
+        <label>
+          Safety / Site Protection Cost
+          <input type="number" id="safetyCost" min="0" step="0.01" inputmode="decimal" placeholder="Example: 80" />
+          <span class="field-hint">Protection setup, site covering, basic safety setup, or damage prevention costs.</span>
+        </label>
+      </div>
+
+      <h3 class="form-section-title">5. Work Days & Cash Flow</h3>
+
+      <div class="form-grid">
+        <label>
+          Planned Work Days
+          <input type="number" id="plannedDays" min="0" step="0.1" inputmode="decimal" placeholder="Example: 3" />
+        </label>
+
+        <label>
+          Extra Work Day Reserve
+          <input type="number" id="extraDayReserve" min="0" step="0.01" inputmode="decimal" placeholder="Example: 200" />
+          <span class="field-hint">Optional. Use this if delays or extra work days may increase costs.</span>
+        </label>
+
+        <label>
+          Days Until Customer Payment
+          <input type="number" id="paymentDays" min="0" step="1" inputmode="numeric" placeholder="Example: 30" />
+        </label>
+
+        <label>
+          Upfront Material Payment
+          <input type="number" id="upfrontMaterial" min="0" step="0.01" inputmode="decimal" placeholder="Example: 700" />
+        </label>
+
+        <label>
+          Upfront Labor Payment
+          <input type="number" id="upfrontLabor" min="0" step="0.01" inputmode="decimal" placeholder="Example: 500" />
+        </label>
+
+        <label>
+          Upfront Subcontractor Payment
+          <input type="number" id="upfrontSubcontractor" min="0" step="0.01" inputmode="decimal" placeholder="Example: 300" />
+        </label>
+
+        <label>
+          Available Cash for This Job
+          <input type="number" id="availableCash" min="0" step="0.01" inputmode="decimal" placeholder="Example: 1000" />
+        </label>
+      </div>
+
+      <h3 class="form-section-title">6. Target Profit</h3>
+
+      <div class="form-grid">
+        <label>
+          Target Profit Margin %
+          <input type="number" id="targetMargin" min="0" max="99" step="0.01" inputmode="decimal" placeholder="Example: 25" />
+        </label>
+      </div>
+
+      <div class="button-row">
+        <button type="button" onclick="calculateJobProfit()">Calculate</button>
+        <button type="button" class="secondary-button" onclick="resetJobProfit()">Reset</button>
+        <button type="button" class="secondary-button" onclick="printReport()">Print / Save PDF</button>
       </div>
     </section>
 
-    <section class="value-section" id="how-it-works">
-      <div class="container">
-        <div class="section-heading">
-          <h2>A quick check before you accept the job.</h2>
-          <p>
-            Excel can calculate numbers, but it does not remind you what costs and risks you may forget.
-          </p>
-          <p>
-            This tool guides you through real job costs, risk buffers, and cash flow before you accept the job.
-          </p>
-        </div>
+    <section class="result-card" id="reportArea">
+      <h2>Result</h2>
 
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>Real job costs</h3>
-            <p>Include materials, labor, subcontractors, travel, tools, supplies, and other easy-to-forget costs.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Risk buffers</h3>
-            <p>Add buffers for mistakes, material waste, warranty, site issues, safety setup, and unexpected events.</p>
-          </article>
-          <article class="feature-card">
-            <h3>Cash flow red light</h3>
-            <p>Check whether you must pay for materials, labor, or subcontractors before the customer pays you.</p>
-          </article>
-        </div>
+      <div class="status-box" id="riskStatus">
+        <strong>Risk Status</strong>
+        <span>Enter numbers to calculate</span>
       </div>
-    </section>
 
-    <section class="calculator-section" id="calculator">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Free Job Profit Decision Checker</p>
-          <h2>Estimate the job. Check the profit. Watch the cash gap.</h2>
-          <p>
-            Enter your own estimated numbers. This tool does not judge market price. It only checks whether your estimated job price still leaves enough profit.
-          </p>
-        </div>
+      <p id="riskMessage" class="result-message">
+        Your result will appear here after calculation.
+      </p>
 
-        <div class="calculator-layout">
-          <form class="calculator-form" id="profitForm">
-            <details class="form-panel" open>
-              <summary>
-                <span>1. Job Basics</span>
-                <small>Project name, date, currency</small>
-              </summary>
-              <div class="panel-content">
-                <label>
-                  Project Name
-                  <input type="text" id="projectName" placeholder="e.g., Bathroom repair, Airbnb cleaning" />
-                </label>
-
-                <label>
-                  Date
-                  <input type="date" id="projectDate" />
-                </label>
-
-                <label>
-                  Currency
-                  <select id="currency">
-                    <option value="$">USD ($)</option>
-                    <option value="NT$">TWD (NT$)</option>
-                    <option value="£">GBP (£)</option>
-                    <option value="A$">AUD (A$)</option>
-                    <option value="C$">CAD (C$)</option>
-                    <option value="€">EUR (€)</option>
-                    <option value="¥">JPY (¥)</option>
-                  </select>
-                </label>
-              </div>
-            </details>
-
-            <details class="form-panel" open>
-              <summary>
-                <span>2. Estimate Your Job Amount</span>
-                <small>How much will you actually collect?</small>
-              </summary>
-              <div class="panel-content">
-                <label>
-                  Project Amount / Bid Amount
-                  <input type="number" inputmode="decimal" id="projectAmount" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Discount or Price Reduction
-                  <input type="number" inputmode="decimal" id="discount" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Extra Charges You Can Collect
-                  <input type="number" inputmode="decimal" id="extraCharges" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <div class="inline-result">
-                  <span>Actual Income</span>
-                  <strong id="actualIncomePreview">$0.00</strong>
-                </div>
-              </div>
-            </details>
-
-            <details class="form-panel" open>
-              <summary>
-                <span>3. Project Type</span>
-                <small>Different work models have different risks.</small>
-              </summary>
-              <div class="panel-content">
-                <label>
-                  Project Type
-                  <select id="projectType">
-                    <option value="Fixed-price job">Fixed-price job</option>
-                    <option value="Turnkey project">Turnkey project</option>
-                    <option value="Labor-only job">Labor-only job</option>
-                    <option value="Labor + materials">Labor + materials</option>
-                    <option value="Subcontracted work">Subcontracted work</option>
-                    <option value="Hourly job">Hourly job</option>
-                    <option value="Unit-price job">Unit-price job</option>
-                    <option value="Mixed pricing">Mixed pricing</option>
-                  </select>
-                </label>
-                <p class="hint" id="projectTypeHint">
-                  Fixed-price jobs can become risky when costs exceed the agreed price.
-                </p>
-              </div>
-            </details>
-
-            <details class="form-panel" open>
-              <summary>
-                <span>4. Basic Costs</span>
-                <small>What will you need to pay to complete the job?</small>
-              </summary>
-              <div class="panel-content">
-                <div class="input-with-tool">
-                  <label>
-                    Material Cost
-                    <input type="number" inputmode="decimal" id="materialCost" min="0" step="0.01" placeholder="0.00" />
-                  </label>
-                  <button type="button" class="mini-btn" data-quick-sum="materialCost" data-title="Material Cost">Quick Sum</button>
-                </div>
-
-                <div class="input-with-tool">
-                  <label>
-                    Labor Cost
-                    <input type="number" inputmode="decimal" id="laborCost" min="0" step="0.01" placeholder="0.00" />
-                  </label>
-                  <button type="button" class="mini-btn" data-quick-sum="laborCost" data-title="Labor Cost">Quick Sum</button>
-                </div>
-
-                <label>
-                  Subcontractor Cost
-                  <input type="number" inputmode="decimal" id="subcontractorCost" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <div class="input-with-tool">
-                  <label>
-                    Travel / Vehicle Cost
-                    <input type="number" inputmode="decimal" id="travelCost" min="0" step="0.01" placeholder="0.00" />
-                  </label>
-                  <button type="button" class="mini-btn" data-quick-sum="travelCost" data-title="Travel / Vehicle Cost">Quick Sum</button>
-                </div>
-
-                <div class="nested-panel">
-                  <h4>Tools, Supplies & Consumables</h4>
-                  <p class="hint">
-                    Use broad categories. This is not an inventory system.
-                  </p>
-
-                  <label>
-                    Small Tools / Tool Wear
-                    <input type="number" inputmode="decimal" id="toolWear" min="0" step="0.01" placeholder="0.00" />
-                  </label>
-
-                  <label>
-                    Consumables & Small Hardware
-                    <input type="number" inputmode="decimal" id="consumables" min="0" step="0.01" placeholder="0.00" />
-                  </label>
-
-                  <label>
-                    Cleaning / Finishing Supplies
-                    <input type="number" inputmode="decimal" id="cleaningSupplies" min="0" step="0.01" placeholder="0.00" />
-                  </label>
-
-                  <label>
-                    Protective & Site Protection Supplies
-                    <input type="number" inputmode="decimal" id="protectiveSupplies" min="0" step="0.01" placeholder="0.00" />
-                  </label>
-
-                  <label>
-                    Other Tools, Supplies & Consumables
-                    <input type="number" inputmode="decimal" id="otherTools" min="0" step="0.01" placeholder="0.00" />
-                  </label>
-
-                  <div class="inline-result">
-                    <span>Total Tools, Supplies & Consumables</span>
-                    <strong id="toolsTotalPreview">$0.00</strong>
-                  </div>
-                </div>
-
-                <label>
-                  Other Costs
-                  <input type="number" inputmode="decimal" id="otherCosts" min="0" step="0.01" placeholder="0.00" />
-                </label>
-              </div>
-            </details>
-
-            <details class="form-panel" open>
-              <summary>
-                <span>5. Risk Buffers</span>
-                <small>What could go wrong and eat your profit?</small>
-              </summary>
-              <div class="panel-content">
-                <p class="hint">
-                  Risk buffers are not wasted money. If problems do not happen, unused buffers may become extra profit.
-                </p>
-
-                <div class="input-with-tool">
-                  <label>
-                    Rework / Mistake Buffer
-                    <input type="number" inputmode="decimal" id="reworkBuffer" min="0" step="0.01" placeholder="0.00" />
-                  </label>
-                  <button type="button" class="mini-btn" data-quick-sum="reworkBuffer" data-title="Rework / Mistake Buffer">Quick Sum</button>
-                </div>
-
-                <label>
-                  Material Waste Buffer
-                  <input type="number" inputmode="decimal" id="wasteBuffer" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Warranty / Return Visit Buffer
-                  <input type="number" inputmode="decimal" id="warrantyBuffer" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Unexpected Event Buffer
-                  <input type="number" inputmode="decimal" id="unexpectedBuffer" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Site Condition Buffer
-                  <input type="number" inputmode="decimal" id="siteBuffer" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Safety Setup / Protection Cost
-                  <input type="number" inputmode="decimal" id="safetyCost" min="0" step="0.01" placeholder="0.00" />
-                </label>
-              </div>
-            </details>
-
-            <details class="form-panel">
-              <summary>
-                <span>6. Work Days & Extra Work Reserve</span>
-                <small>For fixed-price, turnkey, and labor-based jobs.</small>
-              </summary>
-              <div class="panel-content">
-                <label>
-                  Estimated Work Days
-                  <input type="number" inputmode="decimal" id="estimatedDays" min="0" step="0.5" placeholder="0" />
-                </label>
-
-                <label>
-                  Reserved Extra Days
-                  <input type="number" inputmode="decimal" id="reservedDays" min="0" step="0.5" placeholder="0" />
-                </label>
-
-                <label>
-                  Daily Cost
-                  <input type="number" inputmode="decimal" id="dailyCost" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Extra Work Reserve
-                  <input type="number" inputmode="decimal" id="extraWorkReserve" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <p class="hint">
-                  Reserved extra work and extra days are not wasted. If they are not used, they may become extra profit.
-                </p>
-              </div>
-            </details>
-
-            <details class="form-panel" open>
-              <summary>
-                <span>7. Cash Flow</span>
-                <small>What must go out before the customer pays?</small>
-              </summary>
-              <div class="panel-content">
-                <label>
-                  Days Until Customer Payment
-                  <input type="number" inputmode="numeric" id="paymentDays" min="0" step="1" placeholder="0" />
-                </label>
-
-                <label>
-                  Upfront Material Payment
-                  <input type="number" inputmode="decimal" id="upfrontMaterial" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Upfront Labor Payment
-                  <input type="number" inputmode="decimal" id="upfrontLabor" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Upfront Subcontractor Payment
-                  <input type="number" inputmode="decimal" id="upfrontSubcontractor" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Other Upfront Payments
-                  <input type="number" inputmode="decimal" id="otherUpfront" min="0" step="0.01" placeholder="0.00" />
-                </label>
-
-                <label>
-                  Available Cash for This Job
-                  <input type="number" inputmode="decimal" id="availableCash" min="0" step="0.01" placeholder="0.00" />
-                </label>
-              </div>
-            </details>
-
-            <details class="form-panel">
-              <summary>
-                <span>8. Target Profit</span>
-                <small>Optional, but useful for minimum safe quote.</small>
-              </summary>
-              <div class="panel-content">
-                <label>
-                  Target Profit Amount
-                  <input type="number" inputmode="decimal" id="targetProfit" min="0" step="0.01" placeholder="0.00" />
-                </label>
-              </div>
-            </details>
-
-            <div class="form-actions">
-              <button type="button" class="btn btn-primary" id="calculateBtn">Calculate</button>
-              <button type="reset" class="btn btn-secondary" id="resetBtn">Reset</button>
-            </div>
-          </form>
-
-          <aside class="result-panel" id="resultPanel" aria-live="polite">
-            <div class="result-header">
-              <p class="eyebrow">Result</p>
-              <h2 id="statusTitle">Not calculated yet</h2>
-              <p id="statusDescription">Enter your numbers and press Calculate to check this job.</p>
-            </div>
-
-            <div class="result-status" id="riskStatusBox">
-              <span>Risk Status</span>
-              <strong id="riskStatus">—</strong>
-            </div>
-
-            <div class="result-grid">
-              <div class="result-item">
-                <span>Actual Income</span>
-                <strong id="actualIncome">$0.00</strong>
-              </div>
-              <div class="result-item">
-                <span>Basic Profit</span>
-                <strong id="basicProfit">$0.00</strong>
-              </div>
-              <div class="result-item">
-                <span>Total Risk Buffer</span>
-                <strong id="totalRiskBuffer">$0.00</strong>
-              </div>
-              <div class="result-item emphasis">
-                <span>True Safe Profit</span>
-                <strong id="trueSafeProfit">$0.00</strong>
-              </div>
-              <div class="result-item">
-                <span>Work Day & Extra Work Reserve</span>
-                <strong id="workReserveTotal">$0.00</strong>
-              </div>
-              <div class="result-item">
-                <span>Minimum Safe Quote</span>
-                <strong id="minimumSafeQuote">$0.00</strong>
-              </div>
-              <div class="result-item">
-                <span>Maximum Safe Discount</span>
-                <strong id="maximumSafeDiscount">$0.00</strong>
-              </div>
-              <div class="result-item">
-                <span>Maximum Cash Needed Before Payment</span>
-                <strong id="maximumCashNeeded">$0.00</strong>
-              </div>
-              <div class="result-item">
-                <span>Cash Gap</span>
-                <strong id="cashGap">$0.00</strong>
-              </div>
-            </div>
-
-            <div class="warnings-box">
-              <h3>Warning Messages</h3>
-              <ul id="warningList">
-                <li>No warnings yet.</li>
-              </ul>
-            </div>
-
-            <button type="button" class="btn btn-primary full-width" id="downloadPdfBtn" disabled>
-              Download PDF Report
-            </button>
-
-            <p class="microcopy">
-              This report is for general business estimation only. It does not provide legal, tax, insurance, compliance, safety regulation, or market price advice.
-            </p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="info-section" id="risk-buffer">
-      <div class="container split-section">
+      <div class="result-grid">
         <div>
-          <p class="eyebrow">Risk Buffer</p>
-          <h2>Risk buffer is not wasted money.</h2>
+          <span>Actual Income</span>
+          <strong id="actualIncome">$0.00</strong>
         </div>
+
         <div>
-          <p>
-            A risk buffer is money you set aside for problems that may happen during or after the job.
-            If rework, warranty, delays, mistakes, or unexpected events do not happen, the unused buffer may become extra profit.
-          </p>
-          <ul class="check-list">
-            <li>Rework or mistake buffer</li>
-            <li>Material waste buffer</li>
-            <li>Warranty or return visit buffer</li>
-            <li>Unexpected event buffer</li>
-            <li>Site condition and protection cost</li>
-          </ul>
+          <span>Basic Cost Total</span>
+          <strong id="basicCostTotal">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Basic Profit</span>
+          <strong id="basicProfit">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Total Risk Buffer</span>
+          <strong id="totalRiskBuffer">$0.00</strong>
+        </div>
+
+        <div>
+          <span>True Safe Profit</span>
+          <strong id="trueSafeProfit">$0.00</strong>
+        </div>
+
+        <div>
+          <span>True Safe Margin</span>
+          <strong id="trueSafeMargin">0.00%</strong>
+        </div>
+
+        <div>
+          <span>Break-even Price</span>
+          <strong id="breakEvenPrice">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Minimum Safe Quote</span>
+          <strong id="minimumSafeQuote">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Maximum Cash Needed</span>
+          <strong id="maximumCashNeeded">$0.00</strong>
+        </div>
+
+        <div>
+          <span>Cash Gap</span>
+          <strong id="cashGap">$0.00</strong>
         </div>
       </div>
+
+      <p class="small-note">
+        Results are estimates based only on the numbers you enter. Use them as a quick decision check,
+        not as professional advice.
+      </p>
     </section>
 
-    <section class="info-section light" id="cash-flow">
-      <div class="container split-section">
-        <div>
-          <p class="eyebrow">Cash Flow</p>
-          <h2>Profit does not always mean safe cash flow.</h2>
-        </div>
-        <div>
-          <p>
-            A job can show a profit on paper and still create cash flow pressure.
-            If you need to pay for materials, labor, tools, or subcontractors before the customer pays you, the job may require more cash than expected.
-          </p>
-          <p class="quote-line">
-            A profitable job can still hurt your business if payment comes too late.
-          </p>
-        </div>
-      </div>
+    <section id="risk-buffer" class="content-section">
+      <h2>Why Risk Buffers Matter</h2>
+
+      <p>
+        A job can look profitable on paper but still lose money if rework, waste, warranty visits,
+        site conditions, or protection costs are not included.
+      </p>
+
+      <p>
+        A risk buffer is not wasted money. If the risk does not happen, the reserved amount may become
+        extra profit. If the risk does happen, the buffer may help prevent the job from turning into a loss.
+      </p>
     </section>
 
-    <section class="info-section" id="about">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">About</p>
-          <h2>What this tool does and does not do.</h2>
-          <p>
-            This tool was built to help small service businesses think beyond materials and labor. It encourages users to include real job costs, risk buffers, tool costs, rework, warranty, payment delays, and cash flow pressure before accepting a job.
-          </p>
-        </div>
+    <section id="cash-flow" class="content-section">
+      <h2>Cash Flow Warning</h2>
 
-        <div class="notice-box">
-          <h3>This tool does not provide:</h3>
-          <ul>
-            <li>Legal, tax, insurance, or compliance advice</li>
-            <li>Safety regulation or labor regulation judgment</li>
-            <li>Market price or fair price judgment</li>
-            <li>Formal quote, invoice, contract, or bid document generation</li>
-          </ul>
-          <p>
-            All numbers are entered by the user. The result is only an estimate for business planning.
-          </p>
-        </div>
-      </div>
+      <p>
+        A job can show profit but still create cash pressure if you must pay for materials, labor,
+        or subcontractors before the customer pays you.
+      </p>
+
+      <p>
+        This calculator estimates the maximum cash needed and cash gap based on the upfront payments
+        and available cash you enter.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Related Tool</h2>
+
+      <p>
+        If you have not sent a quote yet and want a faster way to estimate the lowest price needed
+        to protect your target margin, use the minimum safe quote calculator.
+      </p>
+
+      <p>
+        <a href="minimum-safe-quote-calculator.html">
+          Calculate your minimum safe quote before sending a price
+        </a>
+      </p>
+    </section>
+
+    <section id="about" class="content-section">
+      <h2>About This Tool</h2>
+
+      <p>
+        QuoteGuard Tools helps small contractors and service businesses run simple quote safety checks
+        before accepting work.
+      </p>
+
+      <p>
+        This tool does not predict prices, provide industry standard pricing, create formal quotes,
+        generate invoices, or replace professional estimating, accounting, legal, tax, insurance,
+        safety, compliance, or construction advice.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>FAQ</h2>
+
+      <h3>Who is this tool for?</h3>
+      <p>
+        It is built for small contractors, handymen, cleaning businesses, repair workers,
+        maintenance services, renovation workers, and small service businesses that quote jobs.
+      </p>
+
+      <h3>What does this calculator estimate?</h3>
+      <p>
+        It estimates actual income, basic profit, risk buffers, true safe profit, minimum safe quote,
+        cash needed, and cash gap based on the numbers you enter.
+      </p>
+
+      <h3>Does this tool tell me whether I should accept a job?</h3>
+      <p>
+        No. It only shows a simple risk status based on your inputs. You must make your own decision
+        based on your business situation, contract terms, and risk tolerance.
+      </p>
+
+      <h3>Does this tool provide professional advice?</h3>
+      <p>
+        No. It does not provide professional estimating, accounting, legal, tax, insurance,
+        compliance, safety, or financial advice.
+      </p>
+    </section>
+
+    <section class="content-section disclaimer">
+      <h2>Important Disclaimer</h2>
+
+      <p>
+        This calculator is for simple informational estimation only. It does not provide professional
+        estimating, accounting, legal, tax, insurance, construction, safety, compliance, or financial advice.
+        Please adjust all inputs based on your own costs, local market, contract terms, and business situation.
+      </p>
+    </section>
+
+    <section class="language-note">
+      <strong>Language note:</strong>
+      English is the main version for now. Other language entry pages can be added later after the main site
+      structure is stable.
     </section>
   </main>
 
-  <dialog class="quick-sum-modal" id="quickSumModal">
-    <form method="dialog" class="quick-sum-box">
-      <div class="modal-header">
-        <div>
-          <p class="eyebrow">Quick Sum</p>
-          <h2 id="quickSumTitle">Quick Sum</h2>
-        </div>
-        <button type="button" class="icon-btn" id="closeQuickSum" aria-label="Close quick sum">×</button>
-      </div>
-
-      <div id="quickSumRows" class="quick-sum-rows"></div>
-
-      <button type="button" class="mini-btn" id="addQuickSumRow">+ Add Row</button>
-
-      <div class="inline-result modal-total">
-        <span>Total</span>
-        <strong id="quickSumTotal">$0.00</strong>
-      </div>
-
-      <div class="modal-actions">
-        <button type="button" class="btn btn-secondary" id="cancelQuickSum">Cancel</button>
-        <button type="button" class="btn btn-primary" id="applyQuickSum">Apply Total</button>
-      </div>
-    </form>
-  </dialog>
-
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <p>
-        Job Profit Checker helps small service businesses estimate real job profit, risk buffers, and cash flow pressure before accepting work.
-      </p>
-      <p>
-        General business estimation only. No legal, tax, insurance, compliance, safety regulation, or market price advice.
-      </p>
+    <div class="container">
+      <p>© QuoteGuard Tools. Simple calculators for small business quote decisions.</p>
     </div>
   </footer>
+
+  <script>
+    function formatCurrency(value) {
+      if (!isFinite(value)) {
+        return "$0.00";
+      }
+
+      return value.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD"
+      });
+    }
+
+    function formatPercent(value) {
+      if (!isFinite(value)) {
+        return "0.00%";
+      }
+
+      return value.toFixed(2) + "%";
+    }
+
+    function getNumber(id) {
+      const element = document.getElementById(id);
+      if (!element) {
+        return 0;
+      }
+
+      const value = parseFloat(element.value);
+      return isNaN(value) ? 0 : value;
+    }
+
+    function setText(id, value) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = value;
+      }
+    }
+
+    function updateProjectTypeNote() {
+      const projectType = document.getElementById("projectType").value;
+      const note = document.getElementById("projectTypeNote");
+
+      const notes = {
+        fixed: "Fixed-price jobs can become risky if material, labor, or rework costs increase after the quote is accepted.",
+        turnkey: "Turnkey projects may include coordination, subcontractors, delays, site conditions, and cash flow pressure.",
+        laborOnly: "Labor-only jobs still need to consider travel, waiting time, tools, supplies, and unexpected extra work.",
+        laborMaterials: "Labor + materials jobs need careful material cost, waste, delivery, and upfront payment checks.",
+        subcontracted: "Subcontracted work may involve slow upstream payment, deductions, acceptance delays, or upfront labor and material costs.",
+        hourly: "Hourly jobs reduce some fixed-price risk, but you still need to check travel, tools, materials, and payment timing.",
+        unitPrice: "Unit-price jobs depend on actual quantity. If the quantity changes, profit may change quickly.",
+        mixed: "Mixed pricing jobs can hide risk because different parts of the job may have different cost and profit behavior."
+      };
+
+      note.textContent = notes[projectType] || notes.fixed;
+    }
+
+    function calculateJobProfit() {
+      const projectAmount = getNumber("projectAmount");
+      const discountAmount = getNumber("discountAmount");
+      const extraCharges = getNumber("extraCharges");
+
+      const materialCost = getNumber("materialCost");
+      const laborCost = getNumber("laborCost");
+      const subcontractorCost = getNumber("subcontractorCost");
+      const travelCost = getNumber("travelCost");
+      const toolsCost = getNumber("toolsCost");
+      const otherCosts = getNumber("otherCosts");
+
+      const reworkBuffer = getNumber("reworkBuffer");
+      const wasteBuffer = getNumber("wasteBuffer");
+      const warrantyBuffer = getNumber("warrantyBuffer");
+      const unexpectedBuffer = getNumber("unexpectedBuffer");
+      const siteConditionBuffer = getNumber("siteConditionBuffer");
+      const safetyCost = getNumber("safetyCost");
+      const extraDayReserve = getNumber("extraDayReserve");
+
+      const paymentDays = getNumber("paymentDays");
+      const upfrontMaterial = getNumber("upfrontMaterial");
+      const upfrontLabor = getNumber("upfrontLabor");
+      const upfrontSubcontractor = getNumber("upfrontSubcontractor");
+      const availableCash = getNumber("availableCash");
+
+      const targetMarginPercent = getNumber("targetMargin");
+      const targetMarginDecimal = targetMarginPercent / 100;
+
+      const statusBox = document.getElementById("riskStatus");
+      const riskMessage = document.getElementById("riskMessage");
+
+      if (projectAmount <= 0) {
+        statusBox.className = "status-box status-risky";
+        statusBox.innerHTML = "<strong>Risk Status</strong><span>Enter project amount</span>";
+        riskMessage.textContent = "Please enter a project amount or bid amount before calculating.";
+        return;
+      }
+
+      if (targetMarginPercent <= 0 || targetMarginPercent >= 100) {
+        statusBox.className = "status-box status-risky";
+        statusBox.innerHTML = "<strong>Risk Status</strong><span>Check target margin</span>";
+        riskMessage.textContent = "Please enter a target profit margin greater than 0% and less than 100%.";
+        return;
+      }
+
+      const actualIncome = projectAmount - discountAmount + extraCharges;
+
+      const basicCostTotal =
+        materialCost +
+        laborCost +
+        subcontractorCost +
+        travelCost +
+        toolsCost +
+        otherCosts;
+
+      const totalRiskBuffer =
+        reworkBuffer +
+        wasteBuffer +
+        warrantyBuffer +
+        unexpectedBuffer +
+        siteConditionBuffer +
+        safetyCost +
+        extraDayReserve;
+
+      const basicProfit = actualIncome - basicCostTotal;
+      const trueSafeProfit = actualIncome - basicCostTotal - totalRiskBuffer;
+      const trueSafeMargin = actualIncome > 0 ? (trueSafeProfit / actualIncome) * 100 : 0;
+
+      const breakEvenPrice = basicCostTotal + totalRiskBuffer;
+      const minimumSafeQuote = breakEvenPrice / (1 - targetMarginDecimal);
+
+      const maximumCashNeeded = upfrontMaterial + upfrontLabor + upfrontSubcontractor;
+      const cashGap = Math.max(0, maximumCashNeeded - availableCash);
+
+      setText("actualIncome", formatCurrency(actualIncome));
+      setText("basicCostTotal", formatCurrency(basicCostTotal));
+      setText("basicProfit", formatCurrency(basicProfit));
+      setText("totalRiskBuffer", formatCurrency(totalRiskBuffer));
+      setText("trueSafeProfit", formatCurrency(trueSafeProfit));
+      setText("trueSafeMargin", formatPercent(trueSafeMargin));
+      setText("breakEvenPrice", formatCurrency(breakEvenPrice));
+      setText("minimumSafeQuote", formatCurrency(minimumSafeQuote));
+      setText("maximumCashNeeded", formatCurrency(maximumCashNeeded));
+      setText("cashGap", formatCurrency(cashGap));
+
+      let status = "Safe";
+      let statusClass = "status-safe";
+      let message = "";
+
+      if (trueSafeProfit < 0) {
+        status = "Loss";
+        statusClass = "status-loss";
+        message =
+          "Based on your inputs, this job may result in a loss after costs and risk buffers. Review the quote, costs, or risk exposure before accepting the work.";
+      } else if (trueSafeMargin < targetMarginPercent * 0.5 || cashGap > 0) {
+        status = "Risky";
+        statusClass = "status-risky";
+        message =
+          "This job may still make money, but the margin or cash flow looks risky based on your inputs. Review risk buffers, upfront payments, and payment timing.";
+      } else if (trueSafeMargin < targetMarginPercent) {
+        status = "Tight";
+        statusClass = "status-tight";
+        message =
+          "This job appears profitable, but the true safe margin is below your target margin. There may be limited room for mistakes, delays, or extra costs.";
+      } else {
+        status = "Safe";
+        statusClass = "status-safe";
+        message =
+          "Based on your inputs, this job appears to protect your target margin after costs and risk buffers. Still review your contract terms and real-world risks.";
+      }
+
+      if (paymentDays >= 30 && cashGap > 0) {
+        message += " Payment delay may add extra pressure because customer payment is expected after " + paymentDays + " days.";
+      }
+
+      statusBox.className = "status-box " + statusClass;
+      statusBox.innerHTML = "<strong>Risk Status</strong><span>" + status + "</span>";
+      riskMessage.textContent = message;
+    }
+
+    function resetJobProfit() {
+      const inputIds = [
+        "projectAmount",
+        "discountAmount",
+        "extraCharges",
+        "materialCost",
+        "laborCost",
+        "subcontractorCost",
+        "travelCost",
+        "toolsCost",
+        "otherCosts",
+        "reworkBuffer",
+        "wasteBuffer",
+        "warrantyBuffer",
+        "unexpectedBuffer",
+        "siteConditionBuffer",
+        "safetyCost",
+        "plannedDays",
+        "extraDayReserve",
+        "paymentDays",
+        "upfrontMaterial",
+        "upfrontLabor",
+        "upfrontSubcontractor",
+        "availableCash",
+        "targetMargin"
+      ];
+
+      inputIds.forEach(function(id) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.value = "";
+        }
+      });
+
+      const projectType = document.getElementById("projectType");
+      if (projectType) {
+        projectType.value = "fixed";
+      }
+
+      updateProjectTypeNote();
+
+      setText("actualIncome", "$0.00");
+      setText("basicCostTotal", "$0.00");
+      setText("basicProfit", "$0.00");
+      setText("totalRiskBuffer", "$0.00");
+      setText("trueSafeProfit", "$0.00");
+      setText("trueSafeMargin", "0.00%");
+      setText("breakEvenPrice", "$0.00");
+      setText("minimumSafeQuote", "$0.00");
+      setText("maximumCashNeeded", "$0.00");
+      setText("cashGap", "$0.00");
+
+      const statusBox = document.getElementById("riskStatus");
+      statusBox.className = "status-box";
+      statusBox.innerHTML = "<strong>Risk Status</strong><span>Enter numbers to calculate</span>";
+
+      document.getElementById("riskMessage").textContent =
+        "Your result will appear here after calculation.";
+    }
+
+    function printReport() {
+      window.print();
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      updateProjectTypeNote();
+
+      const numberInputs = document.querySelectorAll('input[type="number"]');
+      numberInputs.forEach(function(input) {
+        input.addEventListener("focus", function() {
+          this.select();
+        });
+      });
+    });
+  </script>
 </body>
 </html>
